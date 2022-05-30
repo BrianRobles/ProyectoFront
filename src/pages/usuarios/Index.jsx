@@ -3,13 +3,10 @@ import { useQuery } from '@apollo/client';
 import { GET_USERS } from '../../graphql/usuarios/queries';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import Loading from '../../components/Loading';
 
 const UsersIndex = () => {
   const { loading, error, data } = useQuery(GET_USERS);
-
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
 
   useEffect(() => {
     if (error) {
@@ -17,13 +14,13 @@ const UsersIndex = () => {
     }
   }, [error]);
 
-  if (loading) return <div>Loading....</div>;
+  if (loading) return <Loading />;
   if (error) return <div>{error.message}</div>;
 
   return (
     <div>
       Datos usuarios:
-      <table className="tabla">
+      <table className='tabla'>
         <thead>
           <tr>
             <th>Nombre</th>
@@ -48,7 +45,7 @@ const UsersIndex = () => {
                   <td>{u.estado}</td>
                   <td>
                     <Link to={`/usuarios/editar/${u._id}`}>
-                      <i className="fas fa-pen text-indigo-700 hover:text-indigo-400 cursor-pointer" />
+                      <i className='fas fa-pen text-indigo-700 hover:text-indigo-400 cursor-pointer' />
                     </Link>
                   </td>
                 </tr>

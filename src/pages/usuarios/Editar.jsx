@@ -8,6 +8,7 @@ import ButtonLoading from '../../components/ButtonLoading';
 import Dropdown from '../../components/Dropdown'
 import useFormData from '../../hooks/useFormData';
 import { toast } from 'react-toastify';
+import Loading from '../../components/Loading';
 
 const EditarUsuario = () => {
   const EstadoUsuario = {
@@ -54,7 +55,7 @@ const EditarUsuario = () => {
     }
   }, [mutationError, queryError]);
 
-  if (queryLoading) return <div>Loading...</div>;
+  if (queryLoading) return <Loading/>;
   if (queryError) return <div>{queryError.message}</div>;
 
   return (
