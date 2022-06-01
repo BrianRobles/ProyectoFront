@@ -28,13 +28,17 @@ const Sidebar = () => {
 
 const SidebarLinks = () => {
   const { logout } = useAuth0();
+
+  const handleLogout = () => {
+    logout({ returnTo: window.location.origin });
+    localStorage.setItem('token', null);
+  };
+
   return (
     <ul className='mt-12'>
       <SidebarRoute to='' title='Inicio' icon='fas fa-home' />
       <SidebarRoute to='/usuarios' title='Usuarios' icon='fas fa-car' />
-      <button onClick={() => logout({ returnTo: window.location.origin })}>
-        Cerrar sesion
-      </button>
+      <button onClick={handleLogout}>Cerrar sesion</button>
     </ul>
   );
 };
