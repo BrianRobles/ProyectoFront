@@ -36,7 +36,7 @@ function App() {
     <Auth0Provider
       domain='gestionproyectos.us.auth0.com'
       clientId='FkugUesQe25fGAFzIcE285cmpz8IxuOf'
-      redirectUri='http://localhost:3000/usuarios'
+      redirectUri='https://gestion-proyectos-fr.herokuapp.com/usuarios'
       audience='https://gestion-proyectos/graphql'
     >
       <ApolloProvider client={client}>
