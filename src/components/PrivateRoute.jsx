@@ -8,6 +8,7 @@ const PrivateRoute = ({ children }) => {
     isLoading,
     loginWithRedirect,
     getAccessTokenSilently,
+    user
   } = useAuth0();
 
   useEffect(() => {
