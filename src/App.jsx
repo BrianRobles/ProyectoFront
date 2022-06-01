@@ -42,7 +42,7 @@ function App() {
       <ApolloProvider client={client}>
         <BrowserRouter>
           <Routes>
-            <Route path='register' element={<Register />} />
+            <Route path='/register' element={<Register />} />
             <Route path='/loading' element={<Loading />} />
             <Route path='/' element={<PrivateLayout />}>
               <Route path='' element={<Index />} />
