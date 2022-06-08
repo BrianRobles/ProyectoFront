@@ -6,24 +6,41 @@ const EDIT_USER = gql`
     $nombre: String
     $apellido: String
     $correo: String
-    $identificacion: String
+    $estado: Enum_EstadoUsuario
   ) {
     editarUsuario(
       _id: $_id
       nombre: $nombre
       apellido: $apellido
       correo: $correo
-      identificacion: $identificacion
+      estado: $estado
     ) {
       _id
       nombre
       apellido
       correo
-      identificacion
       rol
       estado
     }
   }
 `;
 
-export {EDIT_USER};
+const CREATE_USER = gql`
+  mutation CrearUsuario(
+    $nombre: String!
+    $apellido: String!
+    $correo: String!
+    $rol: Enum_Rol!
+  ) {
+    crearUsuario(
+      nombre: $nombre
+      apellido: $apellido
+      correo: $correo
+      rol: $rol
+    ) {
+      _id
+    }
+  }
+`;
+
+export { EDIT_USER, CREATE_USER };

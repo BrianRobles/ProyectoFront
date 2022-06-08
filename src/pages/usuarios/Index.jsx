@@ -8,6 +8,18 @@ import Loading from '../../components/Loading';
 const UsersIndex = () => {
   const { loading, error, data } = useQuery(GET_USERS);
 
+  const EstadoUsuario = {
+    PENDIENTE: 'Pendiente',
+    AUTORIZADO: 'Autorizado',
+    NO_AUTORIZADO: 'No autorizado',
+  };
+
+  const Rol = {
+    ADMINISTRADOR: 'Administrador',
+    ESTUDIANTE: 'Estudiante',
+    LIDER: 'Líder',
+  };
+
   useEffect(() => {
     if (error) {
       toast.error('Error al consultar los usuarios');
@@ -26,7 +38,6 @@ const UsersIndex = () => {
             <th>Nombre</th>
             <th>Apellido</th>
             <th>Correo</th>
-            <th>Identificacion</th>
             <th>Rol</th>
             <th>Estado</th>
             <th>Editar</th>
@@ -40,9 +51,8 @@ const UsersIndex = () => {
                   <td>{u.nombre}</td>
                   <td>{u.apellido}</td>
                   <td>{u.correo}</td>
-                  <td>{u.identificacion}</td>
-                  <td>{u.rol}</td>
-                  <td>{u.estado}</td>
+                  <td>{Rol[u.rol]}</td>
+                  <td>{EstadoUsuario[u.estado]}</td>
                   <td>
                     <Link to={`/usuarios/editar/${u._id}`}>
                       <i className='fas fa-pen text-indigo-700 hover:text-indigo-400 cursor-pointer' />
