@@ -31,7 +31,7 @@ const SidebarLinks = () => {
 
   const handleLogout = () => {
     logout({ returnTo: window.location.origin });
-    localStorage.setItem('token', null);
+    localStorage.removeItem('token');
   };
 
   return (

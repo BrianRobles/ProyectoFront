@@ -4,10 +4,9 @@ const GET_USERS = gql`
   query Usuarios {
     Usuarios {
       _id
-      correo
-      identificacion
       nombre
       apellido
+      correo
       rol
       estado
     }
@@ -21,7 +20,6 @@ const GET_USER = gql`
       nombre
       apellido
       correo
-      identificacion
       rol
       estado
     }

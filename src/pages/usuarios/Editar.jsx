@@ -12,8 +12,9 @@ import Loading from '../../components/Loading';
 
 const EditarUsuario = () => {
   const EstadoUsuario = {
-    APROBADO: 'Aprobado',
-    RECHAZADO: 'Rechazado',
+    PENDIENTE: 'Pendiente',
+    AUTORIZADO: 'Autorizado',
+    NO_AUTORIZADO: 'No autorizado',
   };
 
   const { _id } = useParams();
@@ -84,20 +85,6 @@ const EditarUsuario = () => {
           type='text'
           name='apellido'
           defaultValue={queryData.Usuario.apellido}
-          required
-        />
-        <Input
-          label='Correo de la persona:'
-          type='email'
-          name='correo'
-          defaultValue={queryData.Usuario.correo}
-          required
-        />
-        <Input
-          label='Identificación de la persona:'
-          type='text'
-          name='identificacion'
-          defaultValue={queryData.Usuario.identificacion}
           required
         />
         <Dropdown
